@@ -1,0 +1,27 @@
+## Module 1 - Assignment 2
+
+
+```{r}
+library(readr)
+library(tidyverse)
+inventory <- read_csv("InventoryData.csv")
+```
+
+```{r}
+diamonddata <- diamonds
+
+nrow(inventory)
+
+ggplot(diamonddata, aes(price, cut)) +
+  geom_point()
+
+
+summary(inventory$`On Hand`)
+
+inventoryA <- filter(inventory, Supplier == "A")
+
+sort(inventoryA$`Item SKU`)
+
+avg_cost <- inventoryA %>% group_by('Item SKU') %>% summarise(AvgSKUcost = mean('Cost per Unit ($)'))
+```
+
